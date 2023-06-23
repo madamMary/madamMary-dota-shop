@@ -1,0 +1,48 @@
+.card {
+  width: 250px;
+  height: 300px;
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgb(255, 253, 253);
+  border: 1px;
+  color: #222;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  align-content: space-between;
+  overflow: hidden;
+}
+
+.post {
+  text-decoration: none;
+  color: black;
+}
+
+.title__card {
+  font-size: large;
+  font-weight: bold;
+}
+
+.post__img {
+  height: 100px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  margin-top: 15px;
+}
+
+.like__card {
+  display: flex;
+  justify-content: right;
+}
+
+.post__card {
+  font-size: small;
+  margin-top: 15px;
+  overflow: auto;
+  max-height: 100px;
+}

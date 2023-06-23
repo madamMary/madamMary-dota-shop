@@ -1,0 +1,211 @@
+.modal-wrapper {
+  position: fixed;
+  background-color: #fff9;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(1px) grayscale(50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-modal {
+  min-width: 350px;
+  min-height: 300px;
+  width: 350px;
+  background-color: rgb(135, 135, 135);
+  padding: 20px;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.my-modal h3 {
+  margin-bottom: 20px;
+}
+
+form {
+  display: grid;
+  gap: 20px;
+}
+
+.modal-ctl {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.modal-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  cursor: pointer;
+}
+
+.modal-link:hover {
+  background-color: silver;
+}
+
+label {
+  display: grid;
+  gap: 4px;
+}
+
+.modal-btn {
+  border: none;
+  outline: none;
+  height: 40px;
+  background-color: rgb(86, 25, 25);
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 100px;
+  font-size: 20px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.modal-btn:hover {
+  background-color: silver;
+  color: black;
+  opacity: 0.5;
+}
+
+.close__btn {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.modal-ctl {
+  margin: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cl-btn {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  transform: rotate(45deg) scale(2);
+}
+
+.cl-btn .top,
+.cl-btn .bot {
+  display: block;
+  background: rgb(86, 25, 25);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation-timing-function: cubic-bezier(1, 0, 0, 1);
+  animation-iteration-count: 1;
+}
+
+.cl-btn .top {
+  height: 100%;
+  width: 2px;
+  margin-left: -1px;
+  transform: skewY(45deg);
+  top: 0;
+}
+
+.cl-btn .bot {
+  width: 100%;
+  height: 2px;
+  margin-top: -1px;
+  transform: skewX(-45deg);
+  left: 0;
+}
+
+@-webkit-keyframes top-out {
+  from {
+    top: 0%;
+    height: 100%;
+  }
+  to {
+    top: 200%;
+    height: 0%;
+  }
+}
+
+@keyframes top-out {
+  from {
+    top: 0%;
+    height: 100%;
+  }
+  to {
+    top: 200%;
+    height: 0%;
+  }
+}
+@-webkit-keyframes top-in {
+  from {
+    top: -100%;
+    height: 0%;
+  }
+  to {
+    top: 0%;
+    height: 100%;
+  }
+}
+@keyframes top-in {
+  from {
+    top: -100%;
+    height: 0%;
+  }
+  to {
+    top: 0%;
+    height: 100%;
+  }
+}
+@-webkit-keyframes bot-out {
+  from {
+    left: 0%;
+    width: 100%;
+  }
+  to {
+    left: 200%;
+    width: 0%;
+  }
+}
+@keyframes bot-out {
+  from {
+    left: 0%;
+    width: 100%;
+  }
+  to {
+    left: 200%;
+    width: 0%;
+  }
+}
+@-webkit-keyframes bot-in {
+  from {
+    left: -100%;
+    width: 0%;
+  }
+  to {
+    left: 0%;
+    width: 100%;
+  }
+}
+@keyframes bot-in {
+  from {
+    left: -100%;
+    width: 0%;
+  }
+  to {
+    left: 0%;
+    width: 100%;
+  }
+}
+.cl-btn:hover {
+  cursor: pointer;
+}
+.cl-btn:hover .top {
+  animation: top-out 0.25s forwards, top-in 0.25s forwards 0.25s;
+}
+.cl-btn:hover .bot {
+  animation: bot-out 0.25s forwards 0.1s, bot-in 0.25s forwards 0.35s;
+}

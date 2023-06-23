@@ -1,0 +1,96 @@
+.add__card {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.add__card h3 {
+  margin-left: 175px;
+}
+
+.about__hero {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.left__card {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rigth__card {
+  width: 50%;
+}
+
+label {
+  height: 60px;
+  border-radius: 30px;
+}
+
+input {
+  width: 300px;
+  font-size: 13px;
+  padding: 6px 0 4px 10px;
+  border: 1px solid #cecece;
+  background: #f6f6f6;
+  border-radius: 8px;
+}
+
+.name__hero {
+  padding-bottom: 30px;
+}
+
+.img__hero {
+  padding-bottom: 30px;
+}
+
+.tags__hero {
+  padding-bottom: 30px;
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+  height: 50px;
+  background: #f6f6f6;
+  border: 1px solid #cecece;
+  border-radius: 8px 0 0 0;
+  padding: 8px 0 8px 10px;
+}
+
+.preview {
+  height: 250px;
+}
+
+.text__hero {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.btn__block {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.btn__hero {
+  border: none;
+  outline: none;
+  height: 40px;
+  background-color: rgb(86, 25, 25);
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 200px;
+  margin: auto;
+  font-size: 20px;
+}
+
+.btn__hero:hover {
+  background-color: silver;
+  color: black;
+  opacity: 0.5;
+}
