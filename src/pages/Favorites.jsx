@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import Ctx from "../context";
 import Card from "../components/Card/index";
+
 const Favorites = () => {
   const { userId, serverCards } = useContext(Ctx);
+  
   return (
     <>
       <h2>Избранные карточки</h2>
@@ -16,4 +18,5 @@ const Favorites = () => {
     </>
   );
 };
+
 export default Favorites;

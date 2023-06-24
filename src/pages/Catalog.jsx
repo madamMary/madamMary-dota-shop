@@ -4,10 +4,12 @@ import Pagination from "../components/Pagination";
 import usePagination from "../hooks/usePagination";
 import "./style.css";
 import Ctx from "../context";
+
 const Catalog = () => {
   const { serverCards } = useContext(Ctx);
   const [sort, setSort] = useState(true);
   let paginate = usePagination(serverCards, 10);
+
   return (
     <div className="catalog">
       <div className="mb-2">
@@ -23,4 +25,5 @@ const Catalog = () => {
     </div>
   );
 };
+
 export default Catalog;

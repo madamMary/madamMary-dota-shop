@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Ctx from "../context";
 import "./css/newcard.css";
+
 const EditCard = ({}) => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
@@ -10,6 +11,7 @@ const EditCard = ({}) => {
   const { postId } = useParams();
   const { api, setServerCards, singleCard, setSingleCard } = useContext(Ctx);
   const navigate = useNavigate();
+
   useEffect(() => {
     api.getSingleCard(postId).then((data) => {
       if (!data.err) {
@@ -18,6 +20,7 @@ const EditCard = ({}) => {
       }
     });
   }, []);
+
   const editForm = async (e) => {
     e.preventDefault();
     let body = {
@@ -26,6 +29,7 @@ const EditCard = ({}) => {
       text,
       tags,
     };
+    
     api.updSingleCard(postId, body).then((data) => {
       if (!data.err && !data.error) {
         setServerCards((prev) =>
@@ -39,6 +43,7 @@ const EditCard = ({}) => {
       }
     });
   };
+
   return (
     <div className="add__card">
       <h3>Изменить карточку героя</h3>
@@ -117,4 +122,5 @@ const EditCard = ({}) => {
     </div>
   );
 };
+
 export default EditCard;

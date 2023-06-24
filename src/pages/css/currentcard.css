@@ -58,3 +58,10 @@
   vertical-align: top;
   transition: box-shadow 0.2s;
 }
+
+.no__user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

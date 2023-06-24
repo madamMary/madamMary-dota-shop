@@ -3,10 +3,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Trash, Pen } from "react-bootstrap-icons";
 import Ctx from "../context";
 import "./css/currentcard.css";
+
 function CurrentCard() {
   const { postId } = useParams();
   const { setServerCards, api, singleCard, setSingleCard } =
     useContext(Ctx);
+
   const navigate = useNavigate();
   useEffect(() => {
     api.getSingleCard(postId).then((data) => {
@@ -15,16 +17,19 @@ function CurrentCard() {
       }
     });
   }, []);
+
   const delCard = () => {
     api.delSingleCard(postId).then((data) => {
       setServerCards((prev) => prev.filter((el) => el._id !== postId));
       navigate("/catalog");
     });
   };
+
   const goEditCard = (e) => {
     e.preventDefault();
     navigate(`/edit/${postId}`);
   };
+
   return (
     <div className="parent">
       <div className="part__card">
@@ -73,4 +78,5 @@ function CurrentCard() {
     </div>
   );
 }
+
 export default CurrentCard;

@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Ctx from "../../context";
 import "./style.css";
+
 const Modal = ({ active, setActive, setUser }) => {
   const [auth, setAuth] = useState(true);
   const [name, setName] = useState("");
@@ -9,26 +10,31 @@ const Modal = ({ active, setActive, setUser }) => {
   const [pwd, setPwd] = useState("");
   const [testPwd, setTestPwd] = useState("");
   const { api } = useContext(Ctx);
+ 
   const testAccess = {
     color: pwd === testPwd ? "forestgreen" : "crimson",
   };
+
   const switchAuth = (e) => {
     e.preventDefault();
     setAuth(!auth);
     clearForm();
   };
+
   const clearForm = () => {
     setName("");
     setEmail("");
     setPwd("");
     setTestPwd("");
   };
+
   const sendForm = async (e) => {
     e.preventDefault();
     let body = {
       email: email,
       password: pwd,
     };
+
     if (!auth) {
       body.name = name;
       body.group = "group-12";
@@ -49,6 +55,7 @@ const Modal = ({ active, setActive, setUser }) => {
           setActive(false);
           setUser(dataLog.data.name);
         }
+
       } else {
         if (!data.err) {
           localStorage.setItem("dotaUser", data.data.name);
@@ -61,6 +68,7 @@ const Modal = ({ active, setActive, setUser }) => {
       }
     }
   };
+
   return (
     <div
       className="modal-wrapper"
@@ -134,4 +142,5 @@ const Modal = ({ active, setActive, setUser }) => {
     </div>
   );
 };
+
 export default Modal;

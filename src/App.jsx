@@ -11,7 +11,7 @@ import Modal from "./components/Modal";
 import NewCard from "./pages/NewCard";
 import CurrentCard from "./pages/CurrentCard";
 import EditCard from "./pages/EditCard";
-import Search from "./components/Search";
+
 const App = () => {
   const [serverCards, setServerCards] = useState([]);
   const [singleCard, setSingleCard] = useState({});
@@ -24,33 +24,55 @@ const App = () => {
     JSON.parse(localStorage.getItem("dotaCardsAll"))
   );
   const [api, setApi] = useState(new Api(token));
-  const [modalActive, setModalActive] = useState(true);
+  const [modalActive, setModalActive] = useState(false);
   const [addNewCard, setAddNewCard] = useState(false);
+
   useEffect(() => {
-    if (token) {
+    const localToken = localStorage.getItem("dotaToken");
+    if (localToken) {
       setApi(new Api(token));
     }
   }, [token]);
+
   useEffect(() => {
     if (api.token) {
       api.getAllCards().then((data) => {
+        let testArr = [];
         if (setting === true) {
-          setServerCards(data);
+          // setServerCards(data);
+          testArr = data;
           localStorage.setItem("dotaCardsAll", JSON.stringify(true));
         } else {
-          setServerCards(data?.filter((elx) => elx.tags?.includes("dota2")));
+          testArr = data?.filter((elx) => elx.tags?.includes("dota2"));
           localStorage.setItem("dotaCardsAll", JSON.stringify(false));
+        }
+
+        if (text) {
+          const delayDebounceFn = setTimeout(() => {
+            let filterPosts = [];
+            testArr?.forEach((element) => {
+              if (element.text.toLowerCase().includes(text.toLowerCase())) {
+                filterPosts = [...filterPosts, element];
+              }
+              element.tags.forEach((tag) => {
+                if (tag.toLowerCase() === text.toLowerCase()) {
+                  filterPosts = [...filterPosts, element];
+                }
+              });
+            });
+            const arr = Array.from(new Set(filterPosts));
+            setServerCards(arr);
+          }, 200);
+          return () => clearTimeout(delayDebounceFn);
+        } else {
+          setServerCards(testArr);
         }
       });
     } else {
       console.log("нет токена");
     }
-  }, [api.token, setting]);
-  useEffect(() => {
-    if (!cards.length) {
-      setCards(serverCards);
-    }
-  }, [serverCards]);
+  }, [api.token, setting, text]);
+
   useEffect(() => {
     console.log("Change User");
     if (user) {
@@ -62,6 +84,7 @@ const App = () => {
     }
     console.log("u", user);
   }, [user]);
+
   return (
     <Ctx.Provider
       value={{
@@ -79,6 +102,7 @@ const App = () => {
         setSetting,
         singleCard,
         setSingleCard,
+        setText
       }}
     >
       <Header
@@ -110,4 +134,5 @@ const App = () => {
     </Ctx.Provider>
   );
 };
+
 export default App;

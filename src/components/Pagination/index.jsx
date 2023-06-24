@@ -1,5 +1,6 @@
 import Item from "./Item";
 import "./style.css";
+
 const Pagination = ({ hk }) => {
   let items = [];
   for (let i = 0; i < hk.max; i++) {
@@ -14,6 +15,7 @@ const Pagination = ({ hk }) => {
       />
     );
   }
+  
   return (
     <div className="pagination">
       <Item
@@ -34,4 +36,5 @@ const Pagination = ({ hk }) => {
     </div>
   );
 };
+
 export default Pagination;

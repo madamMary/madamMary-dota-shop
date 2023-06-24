@@ -1,7 +1,13 @@
 import "./style.css";
-import { CaretRight } from "react-bootstrap-icons";
+import { CaretRight, BoxArrowInRight } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
-const Main = () => {
+
+const Main = ({ user, setModalActive }) => {
+  
+  const logIn = (e) => {
+    setModalActive(true);
+  };
+
   return (
     <>
       <div className="container">
@@ -18,11 +24,31 @@ const Main = () => {
             </p>
             <p>Переходите в каталог для просмотра карточек героев.</p>
 
-            <Link to="/catalog" title="Каталог">
-              <button className="btn__banner">
-                Каталог <CaretRight />
-              </button>
-            </Link>
+            {user && (
+              <Link to="/catalog" title="Каталог">
+                <button className="btn__banner">
+                  Каталог <CaretRight />
+                </button>
+              </Link>
+            )}
+
+            {!user && (
+              <div className="no__user">
+                <h3>
+                  Зарегистрируйтесь или войдите в профиль, чтобы увидеть каталог
+                </h3>
+                <div className="header__menu__main">
+                  <Link
+                    className="header__icons__main"
+                    href=""
+                    onClick={logIn}
+                    title="Войти"
+                  >
+                    <BoxArrowInRight />
+                  </Link>
+                </div>
+              </div>
+            )}
           </div>
           <div className="pictures__dota">
             <div className="pic__dota">
@@ -37,4 +63,5 @@ const Main = () => {
     </>
   );
 };
+
 export default Main;

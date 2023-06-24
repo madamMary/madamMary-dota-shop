@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import Ctx from "../context";
 import "./css/profile.css";
+
 const Profile = ({ color, setAddNewCard }) => {
   const { setting, setSetting, user, setUser } = useContext(Ctx);
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ const Profile = ({ color, setAddNewCard }) => {
     fontWeight: "bold",
     color: color,
   };
+
   const logOut = (e) => {
     e.preventDefault();
     setUser("");
@@ -21,6 +23,7 @@ const Profile = ({ color, setAddNewCard }) => {
     localStorage.removeItem("dotaId");
     navigate("/");
   };
+
   return (
     <>
       <div className="profile__content">
@@ -83,4 +86,5 @@ const Profile = ({ color, setAddNewCard }) => {
     </>
   );
 };
+
 export default Profile;

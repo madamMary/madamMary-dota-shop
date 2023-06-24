@@ -4,6 +4,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "react-bootstrap-icons";
+
 const Item = ({
   val,
   active = false,
@@ -30,6 +31,7 @@ const Item = ({
     default:
       result = val;
   }
+
   return (
     <div
       className={active ? "pagination__item active" : "pagination__item"}
@@ -39,4 +41,5 @@ const Item = ({
     </div>
   );
 };
+
 export default Item;

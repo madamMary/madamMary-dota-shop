@@ -3,6 +3,7 @@ import Ctx from "../../context";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import Likes from "../Card/likes";
+
 const Card = ({ element }) => {
   const navigate = useNavigate();
   const { userId } = useContext(Ctx);
@@ -10,7 +11,7 @@ const Card = ({ element }) => {
     e.preventDefault();
     navigate(`/post/${element._id}`);
   };
-  {
+
     return (
       <div className="card">
         <div className="like__card">
@@ -32,6 +33,6 @@ const Card = ({ element }) => {
         </Link>
       </div>
     );
-  }
 };
+
 export default Card;

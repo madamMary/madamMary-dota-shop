@@ -6,12 +6,14 @@ import {
   PersonCircle,
   BoxArrowInRight,
 } from "react-bootstrap-icons";
-// import { useState } from "react";
 import Search from "../Search";
+
 const Header = ({ user, setModalActive }) => {
+ 
   const logIn = (e) => {
     setModalActive(true);
   };
+
   return (
     <header className="header">
       <div className="stiky__header">
@@ -41,7 +43,6 @@ const Header = ({ user, setModalActive }) => {
         )}
         {!user && (
           <div className="header__menu">
-            {" "}
             <Link
               className="header__icons"
               href=""
@@ -57,4 +58,5 @@ const Header = ({ user, setModalActive }) => {
     </header>
   );
 };
+
 export default Header;

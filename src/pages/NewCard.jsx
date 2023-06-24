@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Ctx from "../context";
 import "./css/newcard.css";
+
 const NewCard = ({ active, setActive, setUser }) => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(
@@ -11,6 +12,7 @@ const NewCard = ({ active, setActive, setUser }) => {
   const [tags, setTags] = useState(["dota2"]);
   const { api, setServerCards } = useContext(Ctx);
   const navigate = useNavigate();
+
   const clearForm = () => {
     setTitle("");
     setImage(
@@ -19,6 +21,7 @@ const NewCard = ({ active, setActive, setUser }) => {
     setText("");
     setTags("");
   };
+
   const saveForm = async (e) => {
     e.preventDefault();
     let body = {
@@ -27,6 +30,7 @@ const NewCard = ({ active, setActive, setUser }) => {
       text,
       tags,
     };
+    
     api.addCard(body).then((data) => {
       if (!data.err && !data.error) {
         setServerCards((prev) => [data, ...prev]);
@@ -35,6 +39,7 @@ const NewCard = ({ active, setActive, setUser }) => {
       }
     });
   };
+
   return (
     <div className="add__card">
       <h3>Добавить карточку героя</h3>
@@ -113,4 +118,5 @@ const NewCard = ({ active, setActive, setUser }) => {
     </div>
   );
 };
+
 export default NewCard;
