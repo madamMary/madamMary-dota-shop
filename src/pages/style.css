@@ -1,10 +1,14 @@
-/* .container {
-	background-color: rgb(244, 241, 241);
-} */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
 
 .banner {
   display: flex;
   flex-direction: row;
+  margin: 30px;
 }
 
 .text__banner {
@@ -54,12 +58,12 @@
   margin-bottom: 30px;
 }
 
-.pictures__dota {
+.pictures__dota__main {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 25px;
 }
 
 .pic__dota img {
@@ -68,19 +72,25 @@
   object-fit: cover;
 }
 
-.header__icons__main {
+.main__icons {
   color: rgb(86, 25, 25);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-decoration: none;
 }
 
-.header__menu__main {
-  display: flex;
+.main__icons__txt {
+  color: rgb(86, 25, 25);
+  font-size: 14px;
+  margin-top: 1px;
+}
+
+.main__menu {
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   gap: 70px;
   font-size: xx-large;
 }

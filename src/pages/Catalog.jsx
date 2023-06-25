@@ -8,7 +8,7 @@ import Ctx from "../context";
 const Catalog = () => {
   const { serverCards } = useContext(Ctx);
   const [sort, setSort] = useState(true);
-  let paginate = usePagination(serverCards, 10);
+  let paginate = usePagination(serverCards, 8);
 
   return (
     <div className="catalog">

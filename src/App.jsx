@@ -25,7 +25,6 @@ const App = () => {
   );
   const [api, setApi] = useState(new Api(token));
   const [modalActive, setModalActive] = useState(false);
-  const [addNewCard, setAddNewCard] = useState(false);
 
   useEffect(() => {
     const localToken = localStorage.getItem("dotaToken");
@@ -39,7 +38,6 @@ const App = () => {
       api.getAllCards().then((data) => {
         let testArr = [];
         if (setting === true) {
-          // setServerCards(data);
           testArr = data;
           localStorage.setItem("dotaCardsAll", JSON.stringify(true));
         } else {
@@ -102,7 +100,8 @@ const App = () => {
         setSetting,
         singleCard,
         setSingleCard,
-        setText
+        setText,
+        setModalActive
       }}
     >
       <Header
@@ -111,7 +110,6 @@ const App = () => {
         serverCards={serverCards}
       />
       <main>
-        {/* <Search arr={serverCards} /> */}
         <Routes>
           <Route path="/" element={<Main />} />
           <Route
